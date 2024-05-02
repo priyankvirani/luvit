@@ -51,7 +51,7 @@ class _BottomBarState extends State<BottomBar> {
                   ],
                 ),
               ),
-              SizedBox(width: Dimens.width_70,),
+              SizedBox(width: Dimens.width_90,),
               Expanded(
                 child: Row(
                   children: [

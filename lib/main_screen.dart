@@ -153,7 +153,11 @@ class _MainScreenState extends State<MainScreen> {
                           // Swiped from top to bottom
                           print("pageController. : $currentIndex");
                           setState(() {
-                            list.removeAt(currentIndex);
+                            if(list.length == 1){
+                              list.clear();
+                            }else{
+                              list.removeAt(currentIndex);
+                            }
                           });
                         }
                       },
@@ -514,6 +518,7 @@ class _MainScreenState extends State<MainScreen> {
             child: Container(
               height: 70,
               width: 70,
+              padding: EdgeInsets.all(Dimens.padding_18),
               decoration: BoxDecoration(
                 border: Border.all(color: Colors.black, width: 4),
                 shape: BoxShape.circle,
@@ -525,8 +530,12 @@ class _MainScreenState extends State<MainScreen> {
                     Color(0xFF2F2F2F),
                   ],
                 ),
+                  boxShadow: const [BoxShadow(
+                    color: gradientColor,
+                    blurRadius: 5.0,
+                  ),]
               ),
-              child: const Icon(Icons.photo_camera, size: 30),
+              child: SvgPicture.asset(Images.star),
             ),
           ),
         ),
